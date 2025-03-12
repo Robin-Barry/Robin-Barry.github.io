@@ -4,7 +4,8 @@ let selectedQuestions = [];
 let score = 0;
 let totalQuestions = 0;
 let timer;
-let timeLeft = 20; // ⏳ Default 120 seconds per question
+let timeLeft = 20; // ⏳ Default 20 seconds per question
+let isTransitioning = false; // ✅ Prevents fast clicking issues
 
 async function loadQuestions() {
     try {
@@ -26,11 +27,17 @@ async function startExam(numQuestions) {
         return;
     }
 
+    if (numQuestions > questions.length) {
+        alert(`⚠️ Only ${questions.length} questions available. Starting with ${questions.length} questions.`);
+    }
+
+    numQuestions = Math.min(numQuestions, questions.length); // ✅ Limit to max available questions
+
     document.getElementById('start-screen').style.display = 'none';
     document.getElementById('quiz-container').style.display = 'block';
 
     selectedQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, numQuestions);
-    totalQuestions = numQuestions;
+    totalQuestions = selectedQuestions.length; // ✅ Ensure correct number of questions
     currentQuestionIndex = 0;
     score = 0;
 
@@ -38,6 +45,8 @@ async function startExam(numQuestions) {
 }
 
 function loadQuestion() {
+    clearInterval(timer); // ✅ Prevent multiple timers running
+
     if (currentQuestionIndex >= totalQuestions) {
         showResults();
         return;
@@ -59,11 +68,10 @@ function loadQuestion() {
     let answerOptions = document.getElementById('answer-options');
     answerOptions.innerHTML = "";
 
-    // ✅ Shuffle answer order
     let shuffledAnswers = question.answers.map((answer, index) => ({
         text: answer,
         index: index
-    })).sort(() => Math.random() - 0.5); // Randomize
+    })).sort(() => Math.random() - 0.5);
 
     shuffledAnswers.forEach(({ text, index }) => {
         let button = document.createElement("button");
@@ -78,7 +86,6 @@ function loadQuestion() {
     // ✅ Start countdown timer
     timeLeft = 20;
     document.getElementById("timer").textContent = `Time Left: ${timeLeft}s`;
-    clearInterval(timer);
     timer = setInterval(updateTimer, 1000);
 }
 
@@ -91,10 +98,9 @@ function updateTimer() {
         clearInterval(timer);
         disableAnswers();
         document.getElementById("next-btn").style.display = "none"; // Hide next button
-        setTimeout(() => nextQuestion(), 1500); // ⏳ Wait 1.5s, then move to next question
+        setTimeout(() => nextQuestion(), 1500);
     }
 }
-
 
 // ✅ Disable Answer Buttons if Time Runs Out
 function disableAnswers() {
@@ -105,9 +111,10 @@ function disableAnswers() {
 // ✅ Check Answer & Move to Next Question
 function checkAnswer(selectedIndex, correctIndex, selectedButton) {
     clearInterval(timer); // Stop the timer
+    disableAnswers(); // ✅ Prevent multiple clicks
 
     let question = selectedQuestions[currentQuestionIndex];
-    question.userAnswer = selectedIndex; // ✅ Store user's answer
+    question.userAnswer = selectedIndex;
 
     let buttons = document.querySelectorAll(".answer-button");
     buttons.forEach((button, index) => {
@@ -122,10 +129,22 @@ function checkAnswer(selectedIndex, correctIndex, selectedButton) {
     document.getElementById("next-btn").style.display = "block";
 }
 
-// ✅ Move to Next Question
+// ✅ Move to Next Question (Prevent Fast Clicking)
 function nextQuestion() {
+    if (isTransitioning) return; // ⛔ Prevents multiple clicks
+    isTransitioning = true; // 🚀 Lock button temporarily
+
     currentQuestionIndex++;
-    loadQuestion();
+
+    if (currentQuestionIndex < totalQuestions) {
+        setTimeout(() => {
+            loadQuestion();
+            isTransitioning = false; // ✅ Unlock after new question loads
+        }, 300);
+    } else {
+        showResults();
+        isTransitioning = false; // ✅ Unlock when showing results
+    }
 }
 
 // ✅ Show Results & Highlight Incorrect Answers
@@ -143,6 +162,7 @@ function showResults() {
 
     document.getElementById('score-text').innerHTML = resultText;
 
+    // ✅ Show correct answers list
     let correctList = document.getElementById('correct-answers');
     correctList.innerHTML = selectedQuestions.map((q, i) => {
         let userAnswer = q.userAnswer !== undefined ? q.userAnswer : null;
@@ -159,8 +179,24 @@ function showResults() {
             </li>
         `;
     }).join("");
+
+    // ✅ Ensure the correct answers section is visible
+    correctList.style.display = "none";
 }
+
 // 🌙 Toggle Dark Mode
+function toggleDarkMode() {
+    let body = document.body;
+    body.classList.toggle("dark-mode");
+
+    let isDarkMode = body.classList.contains("dark-mode");
+    localStorage.setItem("darkMode", isDarkMode ? "enabled" : "disabled");
+
+    document.getElementById("dark-mode-toggle").textContent = isDarkMode ? "☀️ Light Mode" : "🌙 Dark Mode";
+
+    fixImagesForDarkMode();
+}
+
 // ✅ Ensure images in Dark Mode have a white background
 function fixImagesForDarkMode() {
     let images = document.querySelectorAll("#image-container img");
@@ -171,33 +207,15 @@ function fixImagesForDarkMode() {
     });
 }
 
-// 🔄 Run this function when Dark Mode is toggled
-function toggleDarkMode() {
-    let body = document.body;
-    body.classList.toggle("dark-mode");
-
-    let isDarkMode = body.classList.contains("dark-mode");
-    localStorage.setItem("darkMode", isDarkMode ? "enabled" : "disabled");
-
-    document.getElementById("dark-mode-toggle").textContent = isDarkMode ? "☀️ Light Mode" : "🌙 Dark Mode";
-
-    fixImagesForDarkMode(); // Apply white background to images in Dark Mode
-}
-
-// ✅ Run on page load to fix images if Dark Mode is enabled
+// ✅ Run on page load to force Dark Mode as default
 window.onload = function () {
-    // ✅ Force Dark Mode as Default
     document.body.classList.add("dark-mode");
     document.getElementById("dark-mode-toggle").textContent = "☀️ Light Mode";
 
-    // ✅ Save Dark Mode state in localStorage
     localStorage.setItem("darkMode", "enabled");
 
-    // ✅ Ensure images in Dark Mode have a white background
     fixImagesForDarkMode();
 };
-
-
 
 // ✅ Toggle Correct Answers Display
 function toggleCorrectAnswers() {
@@ -213,4 +231,3 @@ function restartExam() {
     score = 0;
     selectedQuestions = [];
 }
-
