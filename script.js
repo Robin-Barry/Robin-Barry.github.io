@@ -46,7 +46,7 @@ function loadQuestion() {
     let question = selectedQuestions[currentQuestionIndex];
 
     document.getElementById('question-number').textContent = `Question ${currentQuestionIndex + 1} of ${totalQuestions}`;
-    document.getElementById('question-text').textContent = question.question;
+    document.getElementById('question-text').innerHTML = question.question.replace(/\n/g, '<br>');
 
     let imageContainer = document.getElementById('image-container');
     if (question.image) {

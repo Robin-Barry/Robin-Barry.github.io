@@ -6,6 +6,18 @@
         "correct": 1
     },
     {
+        "question": "You have an Azure Active Directory (Azure AD) tenant named adatum.com that contains the users shown in the following table.<br><br>Adatum.com has the following configurations:<br><br>- Users may join devices to Azure AD is set to User1.<br>- Additional local administrators on Azure AD joined devices is set to None.<br><br>You deploy Windows 10 to a computer named Computer1. User1 joins Computer1 to adatum.com.<br><br>You need to identify which users are added to the local Administrators group on Computer1.",
+        "image": "images/adatum_users_table.png",
+        "answers": [
+            "User1 only.",
+            "User1, User2, and User3 only.",
+            "User1 and User2 only.",
+            "User1, User2, User3, and User4.",
+            "User2 only."
+        ],
+        "correct": 2
+    },    
+    {
         "question": "What is the primary function of Azure Virtual Network?",
         "image": "images/azure_virtual_network.png",
         "answers": ["Host virtual machines", "Provide cloud storage", "Enable networking between Azure resources", "Monitor security logs"],
