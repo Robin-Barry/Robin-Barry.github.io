@@ -1,0 +1,163 @@
+[
+    {
+        "question": "Which Azure service allows you to manage and secure identities?",
+        "image": "images/azure_active_directory.png",
+        "answers": ["Azure Monitor", "Azure Active Directory", "Azure Policy", "Azure Security Center"],
+        "correct": 1
+    },
+    {
+        "question": "You have an Azure Active Directory (Azure AD) tenant named adatum.com that contains the users shown in the following table.<br><br>Adatum.com has the following configurations:<br><br>- Users may join devices to Azure AD is set to User1.<br>- Additional local administrators on Azure AD joined devices is set to None.<br><br>You deploy Windows 10 to a computer named Computer1. User1 joins Computer1 to adatum.com.<br><br>You need to identify which users are added to the local Administrators group on Computer1.",
+        "image": "images/adatum_users_table.png",
+        "answers": [
+            "User1 only.",
+            "User1, User2, and User3 only.",
+            "User1 and User2 only.",
+            "User1, User2, User3, and User4.",
+            "User2 only."
+        ],
+        "correct": 2
+    },    
+    {
+        "question": "What is the primary function of Azure Virtual Network?",
+        "image": "images/azure_virtual_network.png",
+        "answers": ["Host virtual machines", "Provide cloud storage", "Enable networking between Azure resources", "Monitor security logs"],
+        "correct": 2
+    },
+    {
+        "question": "Which command-line tool is used for managing Azure resources?",
+        "answers": ["PowerShell", "Azure CLI", "Bash", "Terraform"],
+        "correct": 1
+    },
+    {
+        "question": "Which storage option provides the fastest access speed in Azure?",
+        "answers": ["Blob Storage", "Table Storage", "Premium SSD", "Archive Storage"],
+        "correct": 2
+    },
+    {
+        "question": "Which tool allows automated deployment of Azure resources?",
+        "image": "images/azure_devops.png",
+        "answers": ["Azure Blueprints", "Azure DevOps", "Azure Resource Manager", "Azure Sentinel"],
+        "correct": 2
+    },
+    {
+        "question": "What is the main advantage of Azure Availability Zones?",
+        "answers": ["Lower costs", "High availability", "Faster storage", "Better performance"],
+        "correct": 1
+    },
+    {
+        "question": "Which Azure service is used for monitoring and logging?",
+        "answers": ["Azure Security Center", "Azure Monitor", "Azure DevOps", "Azure Key Vault"],
+        "correct": 1
+    },
+    {
+        "question": "What is the purpose of Azure Traffic Manager?",
+        "answers": ["Secure web apps", "Optimize network performance", "Distribute incoming traffic", "Monitor cloud resources"],
+        "correct": 2
+    },
+    {
+        "question": "What is the best option for long-term, low-cost data storage?",
+        "answers": ["Blob Storage", "Table Storage", "Premium SSD", "Azure Archive Storage"],
+        "correct": 3
+    },
+    {
+        "question": "What does Azure Security Center help with?",
+        "answers": ["Data backup", "Security policy enforcement", "Software updates", "Network monitoring"],
+        "correct": 1
+    },
+    {
+        "question": "Which service is used to manage hybrid cloud environments?",
+        "answers": ["Azure Stack", "Azure Sentinel", "Azure Arc", "Azure AD B2C"],
+        "correct": 2
+    },
+    {
+        "question": "What is the main function of Azure ExpressRoute?",
+        "answers": ["Secure storage", "Private network connection", "Data backup", "Application hosting"],
+        "correct": 1
+    },
+    {
+        "question": "Which Azure storage option supports NoSQL?",
+        "answers": ["Azure SQL Database", "Azure Cosmos DB", "Blob Storage", "Azure Data Lake"],
+        "correct": 1
+    },
+    {
+        "question": "Which Azure service provides serverless computing?",
+        "answers": ["Azure Functions", "Azure VM", "Azure Kubernetes", "Azure Synapse"],
+        "correct": 0
+    },
+    {
+        "question": "What is the purpose of Azure Site Recovery?",
+        "answers": ["Disaster recovery", "Storage management", "Security policy enforcement", "Cloud networking"],
+        "correct": 0
+    },
+    {
+        "question": "What is Azure Policy used for?",
+        "answers": ["Monitoring virtual machines", "Defining compliance rules", "Networking", "Application hosting"],
+        "correct": 1
+    },
+    {
+        "question": "Which database service is best for relational data?",
+        "answers": ["Azure Blob Storage", "Azure Cosmos DB", "Azure SQL Database", "Azure Table Storage"],
+        "correct": 2
+    },
+    {
+        "question": "Which Azure tool is used for managing costs?",
+        "answers": ["Azure Cost Management", "Azure AD", "Azure Monitor", "Azure Security Center"],
+        "correct": 0
+    },
+    {
+        "question": "Which service allows running containers in Azure?",
+        "image": "images/azure_kubernetes.png",
+        "answers": ["Azure Kubernetes Service", "Azure App Service", "Azure Functions", "Azure Virtual Machines"],
+        "correct": 0
+    },
+    {
+        "question": "What is the primary purpose of Azure Blob Storage?",
+        "answers": ["Hosting VMs", "Storing structured data", "Storing unstructured data", "Networking"],
+        "correct": 2
+    },
+    {
+        "question": "Which authentication method is most secure in Azure AD?",
+        "answers": ["Password only", "Multi-factor authentication", "Username only", "Single sign-on"],
+        "correct": 1
+    },
+    {
+        "question": "What is the purpose of Azure Backup?",
+        "answers": ["Application hosting", "Database management", "Disaster recovery", "Data protection"],
+        "correct": 3
+    },
+    {
+        "question": "Which Azure service is used to manage encryption keys?",
+        "answers": ["Azure Key Vault", "Azure Security Center", "Azure Sentinel", "Azure Monitor"],
+        "correct": 0
+    },
+    {
+        "question": "Which Azure service is best for big data processing?",
+        "answers": ["Azure Data Lake", "Azure SQL Database", "Azure DevOps", "Azure Firewall"],
+        "correct": 0
+    },
+    {
+        "question": "Which service helps manage user identities?",
+        "answers": ["Azure Active Directory", "Azure Firewall", "Azure DevOps", "Azure SQL"],
+        "correct": 0
+    },
+    {
+        "question": "Which Azure networking feature helps with DDoS protection?",
+        "answers": ["Azure VPN", "Azure Firewall", "Azure DDoS Protection", "Azure Bastion"],
+        "correct": 2
+    },
+    {
+        "question": "What is the main purpose of Azure Sentinel?",
+        "answers": ["Security analytics", "Networking", "Data storage", "Application hosting"],
+        "correct": 0
+    },
+    {
+        "question": "Which Azure tool is used to automate deployments?",
+        "answers": ["Azure DevOps", "Azure Security Center", "Azure Monitor", "Azure Site Recovery"],
+        "correct": 0
+    },
+    {
+        "question": "Which service enables AI-powered search in applications?",
+        "answers": ["Azure Search", "Azure Cognitive Services", "Azure AI", "Azure Logic Apps"],
+        "correct": 0
+    }
+]

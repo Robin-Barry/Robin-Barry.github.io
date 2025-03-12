@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZ-104 Exam Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 🌙 Dark Mode Toggle Button - Always Fixed at the Top -->
+    <div id="dark-mode-container">
+        <button id="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+    </div>
+
+    <div id="start-screen">
+        <h1>AZ-104 Exam Simulator</h1>
+        <p>Select your exam mode:</p>
+        <button onclick="startExam(10)">Start 10 Questions</button>
+        <button onclick="startExam(50)">Start 50 Questions</button>
+    </div>
+
+    <div id="quiz-container" style="display:none;">
+        <h3 id="question-number"></h3>
+        <p id="timer"></p>
+        <h2 id="question-text"></h2>
+        <div id="image-container" style="display:none;"></div>
+        <div id="answer-options"></div>
+        <button id="next-btn" onclick="nextQuestion()">Next Question</button>
+    </div>
+
+    <div id="result-container" style="display:none;">
+        <h1>Exam Results</h1>
+        <p id="score-text"></p>
+        
+        <!-- ✅ Added Button to Show/Hide All Answers -->
+        <button onclick="toggleCorrectAnswers()">Show/Hide Correct Answers</button>
+        <ul id="correct-answers" style="display:none;"></ul>
+
+        <button onclick="restartExam()">Restart Exam</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
