@@ -1,336 +1,42 @@
 <!DOCTYPE html>
-<html class="no-js">
-    <head>
-        <meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Robin's Website</title>
-		<link rel="shortcut icon" href="favicon.ico">
-        <meta name="description" content="Robin Barry's, Website, Cool">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" type="text/css" href="css/isotope.css" media="screen" />	
-		<link rel="stylesheet" href="js/fancybox/jquery.fancybox.css" type="text/css" media="screen" />	
-		<link rel="stylesheet" href="css/bootstrap.css">
-		<link rel="stylesheet" href="css/bootstrap-theme.css">
-        <link rel="stylesheet" href="css/style.css">
-		<link rel="stylesheet" href="skin/default.css">
-		<script language=javascript>
-		if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/Android/i))) {
-			location.replace("mobileindex.html");
-		}
-		</script>
-		<script>
-			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-			ga('create', 'UA-51841418-3', 'auto');
-			ga('send', 'pageview');
-		</script>		
-    </head>
-	 
-    <body>
-		<section id="header" class="appear"></section>
-		<div class="navbar navbar-fixed-top" role="navigation" data-0="line-height:100px; height:100px; background-color:rgba(0,0,0,0.3);" data-300="line-height:60px; height:60px; background-color:rgba(0,0,0,1);">
-			 <div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="fa fa-bars color-white"></span>
-					</button>
-					<h1><a class="navbar-brand" href="index.html" data-0="line-height:90px;" data-300="line-height:50px;">			Robin's Website
-					</a></h1>
-				</div>
-				<div class="navbar-collapse collapse">
-					<ul class="nav navbar-nav" data-0="margin-top:20px;" data-300="margin-top:5px;">
-						<li class="active"><a href="#">Thuis.</a></li>
-						<li><a href="#section-about">Over mij.</a></li>
-						<li><a href="#section-portfolio">Portfolio</a></li>
-						<li><a href="#section-contact">Contact.</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZ-104 Exam Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Dark Mode Toggle Button -->
+<button id="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
 
-		<section class="featured">
-			<div class="container"> 
-				<div class="row mar-bot40">
-					<div class="col-md-6 col-md-offset-3">
-						<div class="align-center">
-                                                                                        <p>
-																					<figure class="member-photo"> <img src="img/logo2.jpg" alt="" /></figure>                                                                                   
-							     <h2 class="slogan">Welkom op mijn Website.</h2>
-                                                                                </p>	
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		
-		<!-- overmij -->
-		<section id="section-about" class="section appear clearfix">
-		<div class="container">
+    <div id="start-screen">
+        <h1>AZ-104 Exam Simulator</h1>
+        <p>Select your exam mode:</p>
+        <button onclick="startExam(10)">Start 10 Questions</button>
+        <button onclick="startExam(50)">Start 50 Questions</button>
+    </div>
 
-				<div class="row mar-bot40">
-					<div class="col-md-offset-3 col-md-6">
-						<div class="section-header">
-							<h2 class="section-heading animated" data-animation="bounceInUp">Over Mij:</h2>
-							<p>Hallo Ik ben Robin. Ik ben een ICT-er en werk ook veel met computers. Ik zit momenteel op de opleding MBO ICT-Beheer, en wil later graag een goede ICT-er worden.</p>
-						</div>
-					</div>
-				</div>
+    <div id="quiz-container" style="display:none;">
+        <h3 id="question-number"></h3>
+        <p id="timer"></p>
+        <h2 id="question-text"></h2>
+        <div id="image-container" style="display:none;"></div>
+        <div id="answer-options"></div>
+        <button id="next-btn" onclick="nextQuestion()">Next Question</button>
+    </div>
 
-					<div class="row align-center mar-bot40">
-						<div class="col-md-offset-3 col-md-6">
-							<div class="team-member">
-								<figure class="member-photo"><img src="img/team/robin.jpg" alt="" /></figure>
-								<div class="team-detail">
-									<span>Robin</span>
-								</div>
-							</div>
-						</div>
-					</div>
-						
-		</div>
-		</section>
-		<!-- /Over Mij -->
-		
-		<!-- spacer section:testimonial -->
-		<section id="testimonials" class="section" data-stellar-background-ratio="0.5">
-		<div class="container">
-			<div class="row">				
-					<div class="col-lg-12">
-							<div class="align-center">
-										<div class="testimonial pad-top40 pad-bot40 clearfix">
-										</div>
-								</div>
-							</div>
-					</div>
-				
-			</div>	
-		</div>	
-		</section>	
-			
-		<!-- portfolio -->
-		<section id="section-portfolio" class="section appear clearfix">
-			<div class="container">
-				
-				<div class="row mar-bot40">
-					<div class="col-md-offset-3 col-md-6">
-						<div class="section-header">
-							<h2 class="section-heading animated" data-animation="bounceInUp">Portfolio</h2>
-							<p>Hier kun je een paar photoshop wallpapers die ik gemaakt heb bewonderen.</p>
-						</div>
-					</div>
-				</div>
-					
-                        <div class="row">
-                          <nav id="filter" class="col-md-12 text-center">
-                            <ul>
-                              <li><a href="#" class="current btn-theme btn-small" data-filter="*">Alles</a></li>                           
-                              <li ><a href="#" class="btn-theme btn-small" data-filter=".wallpaper">Achtergronden</a></li>
-							  <li><a href="#"  class="btn-theme btn-small" data-filter=".logo">Logo</a></li>
-							  <li><a href="#"  class="btn-theme btn-small" data-filter=".misc">Misc</a></li>
-                            </ul>
-                          </nav>
-                          <div class="col-md-12">
-                            <div class="row">
-                              <div class="portfolio-items isotopeWrapper clearfix" id="3">
-							  
-                                <article class="col-md-4 isotopeItem wallpaper logo">
-									<div class="portfolio-item">
-										<img src="img/portfolio/RobinGlass.jpg" alt="" />
-										 <div class="portfolio-desc align-center">
-											<div class="folio-info">
-												<h5><a href="#">Robin Glass Logo 2013</a></h5>
-												<a href="img/portfolio/RobinGlass.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
-											 </div>										   
-										 </div>
-									</div>
-                                </article>
+    <div id="result-container" style="display:none;">
+        <h1>Exam Results</h1>
+        <p id="score-text"></p>
+        
+        <!-- ✅ Added Button to Show/Hide All Answers -->
+        <button onclick="toggleCorrectAnswers()">Show/Hide Correct Answers</button>
+        <ul id="correct-answers" style="display:none;"></ul>
 
-                                <article class="col-md-4 isotopeItem misc">
-									<div class="portfolio-item">
-										<img src="img/portfolio/rounds.jpg" alt="" />
-										 <div class="portfolio-desc align-center">
-											<div class="folio-info">
-												<h5><a href="#">Willekeurige rondjes enzo.</a></h5>
-												<a href="img/portfolio/rounds.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
-											 </div>										   
-										 </div>
-									</div>
-                                </article>
-								
+        <button onclick="restartExam()">Restart Exam</button>
+    </div>
 
-                                <article class="col-md-4 isotopeItem logo">
-									<div class="portfolio-item">
-										<img src="img/portfolio/robinntje.jpg" alt="" />
-										 <div class="portfolio-desc align-center">
-											<div class="folio-info">
-												<h5><a href="#">Robin Site Logo 2014</a></h5>
-												<a href="img/portfolio/robinntje.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
-											 </div>										   
-										 </div>
-									</div>
-                                </article>
-
-                                <article class="col-md-4 isotopeItem logo">
-									<div class="portfolio-item">
-										<img src="img/portfolio/Robin23.jpg" alt="" />
-										 <div class="portfolio-desc align-center">
-											<div class="folio-info">
-												<h5><a href="#">Robin triangle logo 2014</a></h5>
-												<a href="img/portfolio/Robin23.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
-											 </div>										   
-										 </div>
-									</div>
-                                </article>
-
-                                <article class="col-md-4 isotopeItem logo wallpaper">
-									<div class="portfolio-item">
-										<img src="img/portfolio/RobinLogo22.jpg" alt="" />
-										 <div class="portfolio-desc align-center">
-											<div class="folio-info">
-												<h5><a href="#">Robin Logo 2013</a></h5>
-												<a href="img/portfolio/RobinLogo22.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
-											 </div>										   
-										 </div>
-									</div>
-                                </article>
-
-                                <article class="col-md-4 isotopeItem icondesign">
-									<div class="portfolio-item">
-										<img src="img/portfolio/RobinRainBow.jpg" alt="" />
-										 <div class="portfolio-desc align-center">
-											<div class="folio-info">
-												<h5><a href="#">Robin Rainbow Logo 2014</a></h5>
-												<a href="img/portfolio/RobinRainBow.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
-											 </div>										   
-										 </div>
-									</div>
-                                </article>
-
-                                <article class="col-md-4 isotopeItem wallpaper">
-									<div class="portfolio-item">
-										<img src="img/portfolio/robinlogo2.jpg" alt="" />
-										 <div class="portfolio-desc align-center">
-											<div class="folio-info">
-												<h5><a href="#">Robin Wallpaper 2014</a></h5>
-												<a href="img/portfolio/robinlogo2.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
-											 </div>										   
-										 </div>
-									</div>
-                                </article>
-
-                                <article class="col-md-4 isotopeItem wallpaper">
-									<div class="portfolio-item">
-										<img src="img/portfolio/RobinRainBowBurn.jpg" alt="" />
-										 <div class="portfolio-desc align-center">
-											<div class="folio-info">
-												<h5><a href="#">Robin Wallpaper 2 2014</a></h5>
-												<a href="img/portfolio/RobinRainBowBurn.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
-											 </div>										   
-										 </div>
-									</div>
-                                </article>
-
-                                <article class="col-md-4 isotopeItem logo">
-									<div class="portfolio-item">
-										<img src="img/portfolio/hallorobin.jpg" alt="" />
-										 <div class="portfolio-desc align-center">
-											<div class="folio-info">
-												<h5><a href="#">Robin logo 2014</a></h5>
-												<a href="img/portfolio/hallorobin.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
-											 </div>										   
-										 </div>
-									</div>
-                                </article>
-
-                                <article class="col-md-4 isotopeItem logo wallpaper">
-									<div class="portfolio-item">
-										<img src="img/portfolio/Projectbarry.jpg" alt="" />
-										 <div class="portfolio-desc align-center">
-											<div class="folio-info">
-												<h5><a href="#">Robin kleurrijke logo 2014</a></h5>
-												<a href="img/portfolio/Projectbarry.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
-											 </div>										   
-										 </div>
-									</div>
-                                </article>									
-                                </div>                                        
-							</div>							
-                                     
-
-							</div>
-                        </div>
-				
-			</div>
-		</section>			
-		<!-- portfolio -->
-		
-		<section id="parallax2" class="section parallax" data-stellar-background-ratio="0.5">	
-            <div class="align-center pad-top40 pad-bot40">
-            </div>
-		</section>		
-			
-		<!-- neem contact op -->
-		<section id="section-contact" class="section pad-bot30 bg-white appear clearfix">
-		<div class="container"> 
-		<div class="align-center">
-			<blockquote class="bigquote">Contact</blockquote>	
-		</div>			
-			<div class="row mar-bot40">
-				<div class="align-center">		
-					<a id="foxyform_embed_link_582677" ></a>
-						<script type="text/javascript">
-							(function(d, t){
-							var g = d.createElement(t),
-							s = d.getElementsByTagName(t)[0];
-							g.src = "http://www.foxyform.com/js.php?id=582677&sec_hash=9c4f1f867d4&width=350px";
-							s.parentNode.insertBefore(g, s);
-							}(document, "script"));
-						</script>
-					</div>			
-				</div>		
-			</div>
-		</section>	
-		<!-- neem contact op -->
-		
-	<a href="#header" class="scrollup"><i class="fa fa-chevron-up"></i></a>	
-	
-	<!-- footer -->	
-	<section id="footer" class="section footer">
-		<div class="container">
-			<div class="row animated opacity mar-bot20" data-andown="fadeIn" data-animation="animation">
-				<div class="col-sm-12 align-center">
-                    <ul class="social-network social-circle">
-                        <li><a href="https://www.facebook.com/robin.boekhout.9" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                    </ul>				
-				</div>
-			</div>
-			<table width='100%'><tr><td align='center'><object classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000' codebase='http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=4,0,2,0' width='143' height='25'><param name=movie value='http://www.freebloghitcounter.com/flash/counter/wmcounter_en_9.swf?_id1=1&_id2=Bauer Bodoni CE Black&_id3=17&ancho=10&alto=5&_id6=2&_id7=12689397&_id8=16776959&_id9=0&_id10=0&_id12=0&_id13=0&_id17=105469' /><param name=quality value=high /><param name=wmode value=transparent /><param name=scale value=noscale /><embed src='http://www.freebloghitcounter.com/flash/counter/wmcounter_en_9.swf?_id1=1&_id2=Bauer Bodoni CE Black&_id3=17&ancho=10&alto=5&_id6=2&_id7=12689397&_id8=16776959&_id9=0&_id10=0&_id12=0&_id13=0&_id17=105469' quality=high wmode=transparent scale=noscale pluginspage='http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash' type='application/x-shockwave-flash' width='143' height='25' /></embed></object></td></tr><tr><td align='center'></td></tr></table>			
-			<div class="row align-center copyright">
-					<div class="col-sm-12"><p>Copyright &copy; 2014 Robin's Website- by <a href="https://www.facebook.com/robin.boekhout.9">Robin Barry </a></p></div>
-			</div>
-		</div>
-	</section>		
-	<!-- footer -->	
-	
-	<!-- scripts -->	
-	<script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-	<script src="js/jquery.js"></script>
-	<script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.isotope.min.js"></script>
-	<script src="js/jquery.nicescroll.min.js"></script>
-	<script src="js/fancybox/jquery.fancybox.pack.js"></script>
-	<script src="js/skrollr.min.js"></script>		
-	<script src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
-	<script src="js/jquery.localscroll-1.2.7-min.js"></script>
-	<script src="js/stellar.js"></script>
-	<script src="js/jquery.appear.js"></script>
-	<script src="js/validate.js"></script>
-    <script src="js/main.js"></script>
-    <script type="text/javascript">   
-    </script>
-	<!-- scripts -->			
-	</body>
+    <script src="script.js"></script>
+</body>
 </html>
