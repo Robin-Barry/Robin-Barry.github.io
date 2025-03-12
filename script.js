@@ -186,12 +186,17 @@ function toggleDarkMode() {
 
 // ✅ Run on page load to fix images if Dark Mode is enabled
 window.onload = function () {
-    if (localStorage.getItem("darkMode") === "enabled") {
-        document.body.classList.add("dark-mode");
-        document.getElementById("dark-mode-toggle").textContent = "☀️ Light Mode";
-        fixImagesForDarkMode(); // Apply fix when page loads
-    }
+    // ✅ Force Dark Mode as Default
+    document.body.classList.add("dark-mode");
+    document.getElementById("dark-mode-toggle").textContent = "☀️ Light Mode";
+
+    // ✅ Save Dark Mode state in localStorage
+    localStorage.setItem("darkMode", "enabled");
+
+    // ✅ Ensure images in Dark Mode have a white background
+    fixImagesForDarkMode();
 };
+
 
 
 // ✅ Toggle Correct Answers Display
