@@ -16,7 +16,18 @@
             "User2 only."
         ],
         "correct": 2
-    },    
+    }, 
+    {
+        "question": "You have an Azure subscription that contains the resources shown in the following table.<br><br>The Not allowed resources types Azure policy is assigned to RG1 and uses the following parameters: In RG1, you need to create a new virtual machine named VM2, and then connect the VM2 to VNET1. What should you do first?",
+        "image": "images/azure_policy_vm_creation.png",
+        "answers": [
+            "Remove Microsoft.Network/virtualNetworks from the policy.",
+            "Create an Azure Resource Manager template.",
+            "Remove Microsoft.Compute/virtualMachines from the policy.",
+            "Add a subnet to VNET1."
+        ],
+        "correct": 2
+    },       
     {
         "question": "What is the primary function of Azure Virtual Network?",
         "image": "images/azure_virtual_network.png",
